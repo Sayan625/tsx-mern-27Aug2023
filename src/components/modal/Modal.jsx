@@ -37,11 +37,11 @@ const Modal = ({ data, close, img, setImg }) => {
                     {/* modal details */}
                     <div className="modal_details_item">
                         <p>Height</p>
-                        <p>{data.height * 0.01}m</p>
+                        <p>{parseFloat(data.height * 0.01).toFixed(2)}m</p>
                     </div>
                     <div className="modal_details_item">
                         <p>Mass</p>
-                        <p>{data.mass}kg</p>
+                        <p>{ parseFloat(data.mass).toFixed(2)}kg</p>
                     </div>
                     <div className="modal_details_item">
                         <p>Birth year</p>
