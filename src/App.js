@@ -21,7 +21,7 @@ function App() {
   async function GetData() {
     setLoader(true);
     try {
-      const resp = await fetch(`http://swapi.dev/api/people/?page=${pageNo}`)
+      const resp = await fetch(`https://swapi.dev/api/people/?page=${pageNo}`)
       const data = await resp.json();
       setAllData(data.results);
       setSearchData(data.results)
