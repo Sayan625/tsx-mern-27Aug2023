@@ -16,4 +16,6 @@
 ![animation](https://github.com/Sayan625/tsx-mern-27Aug2023/assets/92387570/f6c19dcd-e2f8-49f9-bd40-0314c2e396b1)
 
 ## Search (optional)
+it is local search i.e client side
+
 ![search](https://github.com/Sayan625/tsx-mern-27Aug2023/assets/92387570/ee67aebc-a0d5-47c2-8373-b1c610dac7b7)
