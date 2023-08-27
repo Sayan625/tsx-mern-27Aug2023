@@ -1,0 +1,54 @@
+.card{
+    cursor: pointer;
+    justify-self: center;
+    transition: transform 0.05s ease-in;
+
+
+}
+
+.card:hover, .card:focus{
+    transform: scale(0.8);
+}
+
+.card_border{
+    padding: 3px;
+    border-radius: 10px;
+
+}
+
+.card_container{
+    background: #390554;
+    border-radius: 10px;
+    color: aliceblue;
+    padding: 15px 15px;
+    position: relative;
+
+}
+
+
+
+
+.card_text{
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.card_text:nth-child(1){
+    margin-right: 5px;
+
+}
+
+.card_title{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.bold{
+    font-weight: 600;
+
+}
+
+
+

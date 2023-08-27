@@ -1,0 +1,39 @@
+.grid{
+    height: inherit;
+    overflow-y: scroll;
+
+}
+
+.grid_container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 10px;
+    row-gap: 20px;
+    align-items: center;
+    justify-content: stretch;
+    padding: 0px 20px;
+
+
+}
+
+
+
+@media screen and (max-width:980px){
+    .grid_container{
+        grid-template-columns: auto auto auto;
+    
+    }
+}
+@media screen and (max-width:768px){
+    .grid_container{
+        grid-template-columns: auto auto;
+    
+    }
+}
+
+@media screen and (max-width:576px){
+    .grid_container{
+        grid-template-columns: auto;
+    
+    }
+}

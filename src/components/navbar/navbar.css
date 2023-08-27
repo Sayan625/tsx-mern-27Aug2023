@@ -1,0 +1,38 @@
+.navbar{
+    position: fixed;
+    top: 0;
+    width: inherit;
+    z-index: 1;
+    height: 80px;
+    color: white;
+    text-align: center;
+
+}
+
+.navbar_container{
+    color: white;
+    position:sticky;
+    transform: translateY(-50%);
+    margin-top: 30px;
+    padding: 0 20px;
+
+}
+
+.search{
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid white;
+    background-color: transparent;
+    outline: none;
+    caret-color: white;
+    color: white;
+}
+
+.search_title{
+    padding: 0 20px;
+    margin-bottom: 10px;
+    transform: translateY(-60%);
+
+
+}
+
