@@ -1,5 +1,4 @@
 import './modal.css'
-import Loader from '../loader/Loader'
 import React, { useEffect, useState } from 'react'
 
 const Modal = ({ data, close, img, setImg }) => {

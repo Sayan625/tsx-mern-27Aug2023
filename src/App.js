@@ -40,7 +40,7 @@ function App() {
 
   //if there is a search query then allData is filtered based and loaded to searchData
   function Search(query){
-    if(query.length>0 || query!=''){
+    if(query.length>0 || query!==''){
       const filteredData=allData?.filter((data)=>{
         return data.name.toLowerCase().includes(query)
       })
