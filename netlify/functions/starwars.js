@@ -5,10 +5,10 @@ const redis= require('redis')
 //const cors=require('cors')
 
 const redisClient = redis.createClient({
-    password: 'Vclnsna3gE49suhucfAVAjDGsBjkqBfu',
+    password: 'cPrZTvrGB8MlzD3KzT51sMxcA3CZp9dY',
     socket: {
-        host: 'redis-11505.c212.ap-south-1-1.ec2.cloud.redislabs.com',
-        port: 11505
+        host: 'redis-13398.c212.ap-south-1-1.ec2.cloud.redislabs.com',
+        port: 13398
     }
 });
 
@@ -38,22 +38,20 @@ exports.handler= async (event,_context) => {
       }
     let allData=[]
 
-    for(let i=1;i<10;i++){
-        const resp=await axios.get(`https://swapi.dev/api/people/?page=${i}`)
-        const data = await resp.data;
-        allData.push(...data.results)
-    }
-
     //app.get('/people',async (req,res)=>{
         
         const chachedData= await redisClient.get("people")
         if(chachedData!=null){
             allData=JSON.parse(chachedData)
-            //res.send(JSON.parse(chachedData))
+            return {
+                statusCode: 200,
+                body: JSON.stringify([...allData])
+              }
+
         }else{
             
             try {
-                for(let i=1;i<2;i++){
+                for(let i=1;i<3;i++){
                     const resp=await axios.get(`https://swapi.dev/api/people/?page=${i}`)
                     const data = await resp.data;
                     allData.push(...data.results)
@@ -66,6 +64,10 @@ exports.handler= async (event,_context) => {
                 //res.send(error.message)
                 
             }
+            return {
+                statusCode: 200,
+                body: JSON.stringify([...allData])
+              }
         }
     
     
