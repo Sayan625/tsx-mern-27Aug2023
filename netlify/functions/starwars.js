@@ -4,6 +4,22 @@ const axios=require('axios')
 const redis= require('redis')
 const cors=require('cors')
 
+const redisClient = redis.createClient({
+    password: '2ugON0CHpxXKHbV5LsVbtVeicg237ry1',
+    socket: {
+        host: 'redis-15278.c17.us-east-1-4.ec2.cloud.redislabs.com',
+        port: 15278
+    }
+});
+
+//const redisClient = redis.createClient(6379)
+
+redisClient.connect().then(()=>console.log("redis connected"))
+
+const app=express()
+app.use(cors({
+    origin: '*'
+}))
 
 export const handler = async () => {
 
@@ -11,22 +27,7 @@ export const handler = async () => {
     
     //import { createClient } from 'redis';
     
-    const redisClient = redis.createClient({
-        password: '2ugON0CHpxXKHbV5LsVbtVeicg237ry1',
-        socket: {
-            host: 'redis-15278.c17.us-east-1-4.ec2.cloud.redislabs.com',
-            port: 15278
-        }
-    });
-    
-    //const redisClient = redis.createClient(6379)
-    
-    redisClient.connect().then(()=>console.log("redis connected"))
-    
-    const app=express()
-    app.use(cors({
-        origin: '*'
-    }))
+
     
     let allData=[]
 
