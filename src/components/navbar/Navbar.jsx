@@ -2,7 +2,7 @@ import './navbar.css'
 
 import React, { useEffect, useState } from 'react'
 
-const Navbar = ({search}) => {
+const Navbar = ({search,getPage}) => {
 
   const [query,setQuery]=useState('')
   //triggering local search query whenever query changes via search input
@@ -18,7 +18,7 @@ const Navbar = ({search}) => {
         }}/>
         </div>
         <div className="search_title">
-          Search in this page
+          Page   {getPage}
         </div>
     </div>
   )

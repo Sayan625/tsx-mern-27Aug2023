@@ -28,6 +28,8 @@ function App() {
     try {
       const resp = await axios.get(`https://star-wars-640df3.netlify.app/.netlify/functions/starwars`)
       //const data = await resp.json();
+      //const resp = await axios.get(`http://localhost:5000/people`)
+      
       setAllData(resp.data);
       console.log(resp.data)
       setSearchData(resp.data?.slice(0,10*pageNo))
@@ -63,7 +65,7 @@ function App() {
       <div className="App">
         <div className="app_body">
           <div className="body">
-            <Navbar search={Search}/>
+            <Navbar search={Search} getPage={pageNo}/>
             <div className="container">
               {/* loader or grid view is rendered. gridview is rendered based on searchData */}
               {<GridView data={searchData} />} 

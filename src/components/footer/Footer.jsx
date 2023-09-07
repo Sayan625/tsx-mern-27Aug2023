@@ -28,7 +28,7 @@ card loading insted of global loading
  */
 
 function pageButton(num){
-  return (<button className={getPage===num?"pagination_item":""} onClick={()=>setPage(num)}>
+  return (<button onClick={()=>setPage(num)}>
   {num}
 </button>)
 }
@@ -49,8 +49,7 @@ function pageButton(num){
     }
     else{
       //setPage(count+1)
-      setOptions([...options,pageButton(count+1)]
-      )
+      setOptions([...options,pageButton((count+1))])
       if(count>=4)
       setOptions((element) => element.filter((_, index) => index !== 0))
       //setCount((count)=>count+1)
@@ -89,12 +88,12 @@ function pageButton(num){
     <div className="footer">
       <div className="pagination">
         <button  onClick={()=>prev()}>Prev</button>
-        <button className={getPage===1?"pagination_item":""} onClick={()=>setPage(1)}>{1}</button>
+        <button  onClick={()=>setPage(1)}>{1}</button>
         {count>=5? <button disabled>...</button>: <></>}
         {options}
         {count>=8? <></>:<button disabled>...</button>}
         {count>=8?<button onClick={()=>setPage(9)} >{9}</button>:
-        <button className={getPage===9?"pagination_item":""} onClick={()=>setPage(9)} disabled>{9}</button>}
+        <button  onClick={()=>setPage(9)} disabled>{9}</button>}
         <button  onClick={()=>next()}>Next</button>
       </div>
     </div>
