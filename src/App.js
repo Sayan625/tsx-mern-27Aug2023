@@ -4,6 +4,7 @@ import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Loader from './components/loader/Loader';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function App() {
   const [pageNo,setPageNo] = useState(1)
@@ -25,11 +26,11 @@ function App() {
   async function GetData() {
     setLoader(true);
     try {
-      const resp = await fetch(`https://star-wars-640df3.netlify.app/.netlify/functions/starwars`)
-      const data = await resp.json();
-      setAllData(JSON.parse(data));
-      console.log(data)
-      setSearchData(JSON.parse(data)?.slice(0,10*pageNo))
+      const resp = await axios.get(`https://star-wars-640df3.netlify.app/.netlify/functions/starwars`)
+      //const data = await resp.json();
+      setAllData(resp);
+      console.log(resp)
+      setSearchData(resp?.slice(0,10*pageNo))
       setLoader(false);
     } catch (error) {
       setError(error.message)
