@@ -28,9 +28,9 @@ function App() {
     try {
       const resp = await axios.get(`https://star-wars-640df3.netlify.app/.netlify/functions/starwars`)
       //const data = await resp.json();
-      setAllData(resp);
-      console.log(resp)
-      setSearchData(resp?.slice(0,10*pageNo))
+      setAllData(resp.data);
+      console.log(resp.data)
+      setSearchData(resp.data?.slice(0,10*pageNo))
       setLoader(false);
     } catch (error) {
       setError(error.message)
