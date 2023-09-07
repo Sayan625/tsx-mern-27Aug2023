@@ -12,6 +12,11 @@ const redisClient = redis.createClient({
     }
 });
 
+const CORS_HEADERS = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers':
+      'Origin, X-Requested-With, Content-Type, Accept',
+  }
 //const redisClient = redis.createClient(6379)
 
 redisClient.connect().then(()=>console.log("redis connected"))
@@ -21,8 +26,14 @@ redisClient.connect().then(()=>console.log("redis connected"))
   //  origin: '*'
 //}))
 
-exports.handler= async () => {
+exports.handler= async (event,_context) => {
 
+    if (event.httpMethod === 'OPTIONS') {
+        return {
+          statusCode: 200,
+          headers: CORS_HEADERS,
+        }
+      }
     let allData=[]
 
     //app.get('/people',async (req,res)=>{
@@ -54,9 +65,7 @@ exports.handler= async () => {
   
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        allData
-      })
+      body: JSON.stringify([...allData])
     }
   }
 
