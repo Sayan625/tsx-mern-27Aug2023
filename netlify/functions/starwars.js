@@ -21,7 +21,7 @@ redisClient.connect().then(()=>console.log("redis connected"))
   //  origin: '*'
 //}))
 
-export const handler = async () => {
+exports.handler= async () => {
 
     let allData=[]
 
@@ -35,7 +35,7 @@ export const handler = async () => {
             
             try {
                 for(let i=1;i<10;i++){
-                    const resp=await fetch(`https://swapi.dev/api/people/?page=${i}`)
+                    const resp=await axios(`https://swapi.dev/api/people/?page=${i}`)
                     const data = await resp.data;
                     allData.push(...data.results)
                 }
