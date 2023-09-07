@@ -1,8 +1,8 @@
 
-const express=require('express')
+//const express=require('express')
 const axios=require('axios')
 const redis= require('redis')
-const cors=require('cors')
+//const cors=require('cors')
 
 const redisClient = redis.createClient({
     password: '2ugON0CHpxXKHbV5LsVbtVeicg237ry1',
@@ -16,19 +16,13 @@ const redisClient = redis.createClient({
 
 redisClient.connect().then(()=>console.log("redis connected"))
 
-const app=express()
-app.use(cors({
-    origin: '*'
-}))
+//const app=express()
+//app.use(cors({
+  //  origin: '*'
+//}))
 
 export const handler = async () => {
 
-    
-    
-    //import { createClient } from 'redis';
-    
-
-    
     let allData=[]
 
     //app.get('/people',async (req,res)=>{
