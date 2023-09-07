@@ -25,7 +25,7 @@ function App() {
   async function GetData() {
     setLoader(true);
     try {
-      const resp = await fetch(`https://star-wars-640df3.netlify.app/.netlify/functions/people`)
+      const resp = await fetch(`https://star-wars-640df3.netlify.app/.netlify/functions/starwars`)
       const data = await resp.json();
       setAllData(data);
       setSearchData(data?.slice(0,10*pageNo))
