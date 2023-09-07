@@ -22,11 +22,13 @@ const Card = ({data}) => {
     // turnig modal on/off
     return modal? (<Modal close={close} data={data} img={image} setImg={()=>setImage}/>):(
         <div className='card'>
-            <div className="card_border" style={{'background': `${data.eye_color? data.eye_color: "blue"}`}}>
+            <div className="card_border" style={{'background': `${data?.eye_color? data.eye_color: "blue"}`}}>
             <div className='card_container'  onClick={()=>setModal(!modal)}>
-                <p className="card_title">{data.name}</p>
+                <p className="card_title">{data? data.name: <>Loading..</>}</p>
                 <div className="card_img">
-                    <img src={image} alt="" />
+                    {(image && data)? 
+                    <img src={image} alt="" />:<>Loading..</>
+                }
                 </div>
             </div>
             </div>

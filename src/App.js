@@ -15,16 +15,21 @@ function App() {
   //triggering and getdata whenever pageNo changes
   useEffect(() => {
     GetData()
+  },[])
+
+  useEffect(() => {
+    setSearchData(allData.slice(10*pageNo-10,10*pageNo))
   }, [pageNo])
 
   //fetching the data and storing it in allData and searchData variable.
   async function GetData() {
     setLoader(true);
     try {
-      const resp = await fetch(`https://swapi.dev/api/people/?page=${pageNo}`)
+      const resp = await fetch(`https://star-wars-640df3.netlify.app/.netlify/functions/people`)
       const data = await resp.json();
-      setAllData(data.results);
-      setSearchData(data.results)
+      setAllData(data);
+      setSearchData(data?.slice(0,10*pageNo))
+      console.log(data)
       setLoader(false);
     } catch (error) {
       setError(error.message)
@@ -40,13 +45,15 @@ function App() {
 
   //if there is a search query then allData is filtered based and loaded to searchData
   function Search(query){
+
     if(query.length>0 || query!==''){
       const filteredData=allData?.filter((data)=>{
         return data.name.toLowerCase().includes(query)
       })
       setSearchData(filteredData)
+
     }else{
-      setSearchData(allData)
+      setSearchData(allData.slice(10*pageNo-10,10*pageNo))
     }
 
   }
@@ -58,12 +65,12 @@ function App() {
             <Navbar search={Search}/>
             <div className="container">
               {/* loader or grid view is rendered. gridview is rendered based on searchData */}
-              {loader?<Loader/>:<GridView data={searchData} />} 
+              {<GridView data={searchData} />} 
             </div>
           </div>
         </div>
         <div className="app_footer">
-         <Footer setPage={SetCurrentPage} />
+         <Footer setPage={SetCurrentPage} getPage={pageNo} />
         </div>
       </div>
     )

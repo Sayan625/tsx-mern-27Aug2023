@@ -1,12 +1,10 @@
 .card{
     cursor: pointer;
     justify-self: center;
-    transition: transform 0.05s ease-in;
-
-
+    transition: transform 0.2s ease-in;
 }
 
-.card:hover, .card:focus{
+.card:hover{
     transform: scale(0.8);
 }
 

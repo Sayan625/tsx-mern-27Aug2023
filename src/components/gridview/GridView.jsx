@@ -5,13 +5,14 @@ import Card from '../card/Card.jsx';
 
 
 const GridView = ({data}) => {
-  return (
+  const array=new Array(10).fill(0);
+  console.log(data)
+  return  (
     <div className="grid">
       <div className='grid_container'>
-        {data?.map((data,index)=>{
-          return <Card key={index} data={data} />
+        {data?.map((element,index)=>{
+          return <Card key={index} data={data[index]} />
         })}
-
       </div>
     </div>
   )
