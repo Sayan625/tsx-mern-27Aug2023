@@ -47,7 +47,7 @@ exports.handler= async (event,_context) => {
         }else{
             
             try {
-                for(let i=1;i<5;i++){
+                for(let i=1;i<3;i++){
                     const resp=await axios.get(`https://swapi.dev/api/people/?page=${i}`)
                     const data = await resp.data;
                     allData.push(...data.results)
