@@ -27,9 +27,8 @@ function App() {
     try {
       const resp = await fetch(`https://star-wars-640df3.netlify.app/.netlify/functions/starwars`)
       const data = await resp.json();
-      setAllData(data);
-      setSearchData(data?.slice(0,10*pageNo))
-      console.log(data)
+      setAllData(JSON.parse(data));
+      setSearchData(JSON.parse(data)?.slice(0,10*pageNo))
       setLoader(false);
     } catch (error) {
       setError(error.message)
