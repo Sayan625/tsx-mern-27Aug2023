@@ -35,7 +35,7 @@ exports.handler= async () => {
             
             try {
                 for(let i=1;i<10;i++){
-                    const resp=await axios(`https://swapi.dev/api/people/?page=${i}`)
+                    const resp=await axios.get(`https://swapi.dev/api/people/?page=${i}`)
                     const data = await resp.data;
                     allData.push(...data.results)
                 }
