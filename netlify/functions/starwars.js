@@ -5,12 +5,14 @@ const redis= require('redis')
 //const cors=require('cors')
 
 const redisClient = redis.createClient({
-    password: '2ugON0CHpxXKHbV5LsVbtVeicg237ry1',
+    password: 'Vclnsna3gE49suhucfAVAjDGsBjkqBfu',
     socket: {
-        host: 'redis-15278.c17.us-east-1-4.ec2.cloud.redislabs.com',
-        port: 15278
+        host: 'redis-11505.c212.ap-south-1-1.ec2.cloud.redislabs.com',
+        port: 11505
     }
 });
+
+
 
 const CORS_HEADERS = {
     'Access-Control-Allow-Origin': '*',
