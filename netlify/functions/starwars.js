@@ -38,6 +38,12 @@ exports.handler= async (event,_context) => {
       }
     let allData=[]
 
+    for(let i=1;i<10;i++){
+        const resp=await axios.get(`https://swapi.dev/api/people/?page=${i}`)
+        const data = await resp.data;
+        allData.push(...data.results)
+    }
+
     //app.get('/people',async (req,res)=>{
         
         const chachedData= await redisClient.get("people")
@@ -47,7 +53,7 @@ exports.handler= async (event,_context) => {
         }else{
             
             try {
-                for(let i=1;i<3;i++){
+                for(let i=1;i<2;i++){
                     const resp=await axios.get(`https://swapi.dev/api/people/?page=${i}`)
                     const data = await resp.data;
                     allData.push(...data.results)
